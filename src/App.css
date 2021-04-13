@@ -3,6 +3,17 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  color: rgba(255, 255, 255, 0.959);
+  background-color: #24292e;
+  background-image: url(./images/star-bg.svg),
+    linear-gradient(#191c20, #24292e 15%);
+  background-repeat: repeat-x;
+  font-family: "Avenir", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Helvetica Neue", Arial, sans-serif;
+
+  margin-top: 10%;
+}
 
 .game {
   max-width: 500px;
@@ -11,40 +22,61 @@
 
 .body {
   display: flex;
+  justify-content: center;
 }
 
 .help {
-  color: #666;
+  font-size: 1.5rem;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 0px 30px;
+  color: black;
+  background-color: rgb(254, 207, 12);
+  box-decoration-break: clone;
+  transform: rotate(-2deg);
+
   margin: 10px;
   text-align: center;
+}
+.help:hover {
+  color: black;
+  background-color: rgb(254, 207, 12);
+  transform: rotate(0deg);
 }
 
 .left {
   text-align: center;
   width: 50%;
-  border: thin solid #ddd;
+  border: 2px solid black;
+  border-radius: 4px;
 }
 
 .right {
+  margin-left: 2px;
   text-align: center;
   padding: 10px;
   width: 50%;
-  border: thin solid #ddd;
+  border: 2px solid black;
+  border-radius: 4px;
 }
 
 .star {
   display: inline-block;
   margin: 0 15px;
+  border: none;
 }
 
 .star:after {
   content: "\2605";
   font-size: 45px;
+  color: rgb(241, 235, 235);
+  text-decoration: none;
 }
 
 .number {
-  background-color: #eee;
-  border: thin solid #ddd;
+  background-color: #fff;
+  border: 2px solid #fff;
+  border-radius: 4px;
   width: 45px;
   height: 45px;
   margin: 10px;
@@ -58,13 +90,44 @@
 }
 
 .timer {
-  color: #666;
-  margin-top: 3px;
-  margin-left: 3px;
+  font-size: 1.5rem;
+  border: 1px solid black;
+  border-radius: 4px;
+  color: black;
+  padding: 0.75rem;
+  margin: 10px;
+  background-color: rgb(254, 207, 12);
+  font-weight: 700;
+  text-align: center;
+}
+.timer:hover {
+  color: black;
+  background-color: rgb(254, 207, 12);
+  transform: rotate(-2deg);
+}
+.btn {
+  color: black;
+  font-weight: 700;
+  border: 1px solid #fff;
+  background-color: rgb(254, 207, 12);
+  width: 200px;
+  margin-top: 5rem;
+  font-size: 1.5rem;
+  padding: 0.75rem;
+  border-radius: 4px;
+}
+.btn:hover {
+  background-color: #9c88ff;
 }
 
-.game-done .message {
-  font-size: 250%;
-  font-weight: bold;
-  margin: 15px;
+footer {
+  text-align: center;
+  margin-top: 8rem;
+}
+.contact-profile {
+  margin: 1rem;
+}
+.contact-profile > a {
+  color: #fff;
+  margin: 1rem;
 }

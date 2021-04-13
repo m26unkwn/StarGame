@@ -1,6 +1,6 @@
 export const color = {
-  available: "lightgray",
-  used: "lightgreen",
-  wrong: "lightcoral",
-  candidate: "deepskyblue",
+  available: "#fff",
+  used: "#0fb9b1",
+  wrong: "#3867d6",
+  candidate: "#a55eea",
 };

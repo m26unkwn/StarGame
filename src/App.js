@@ -1,12 +1,13 @@
 import "./App.css";
 
-import { StarGame } from "./screen/StarGame";
+import { Footer, StarGame } from "./screen";
 
 function App() {
   return (
-    <div className='game'>
+    <>
       <StarGame />
-    </div>
+      <Footer />
+    </>
   );
 }
 export default App;

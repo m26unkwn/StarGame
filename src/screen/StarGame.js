@@ -6,8 +6,7 @@ import { utils } from "../util";
 import { StarDisplay } from "../components/StarDisplay";
 import { PlayAgain } from "../components/PlayAgain";
 //Creating the StarGame Component
-
-export const StarGame = () => {
+const StarGame = () => {
   const [stars, setStars] = useState(utils.random(1, 9)); //stars state
   const [availableNumber, setAvailableNumber] = useState(utils.range(1, 9));
   const [candidateNum, setCandidateNum] = useState([]);
@@ -24,7 +23,8 @@ export const StarGame = () => {
 
   const candidatesAreWrong = utils.sum(candidateNum) > stars;
 
-  const gameIsDone = availableNumber.length === 0;
+  const gameStatus =
+    availableNumber.length === 0 ? "won" : secondLeft === 0 ? "lost" : "active";
 
   const status = (number) => {
     if (!availableNumber.includes(number)) {
@@ -37,7 +37,7 @@ export const StarGame = () => {
   };
 
   const onNumberClick = (number, currentStatus) => {
-    if (currentStatus === "used") {
+    if (gameStatus !== "active" || currentStatus === "used") {
       return;
     }
 
@@ -62,16 +62,17 @@ export const StarGame = () => {
     setStars(utils.random(1, 9));
     setAvailableNumber(utils.range(1, 9));
     setCandidateNum([]);
+    setSecondLeft(10);
   };
   return (
     <div className='game'>
       <div className='help'>
-        Pick 1 or more numbers that sum to the number of stars
+        <h3>Pick 1 or more numbers that sum to the number of stars</h3>
       </div>
       <div className='body'>
         <div className='left'>
-          {gameIsDone ? (
-            <PlayAgain onClick={resetGame} />
+          {gameStatus !== "active" ? (
+            <PlayAgain onClick={resetGame} gameStatus={gameStatus} />
           ) : (
             <StarDisplay stars={stars} />
           )}
@@ -87,7 +88,9 @@ export const StarGame = () => {
           ))}
         </div>
       </div>
-      <div className='timer'>Time Remaining: 10</div>
+      <div className='timer'>Time Remaining: {secondLeft}</div>
     </div>
   );
 };
+
+export default StarGame;
