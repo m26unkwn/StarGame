@@ -1,6 +1,7 @@
 import "./App.css";
 
-import { Footer, StarGame } from "./screen";
+import { Footer } from "./screen";
+import { StarGame } from "./components/StarGame";
 
 function App() {
   return (

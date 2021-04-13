@@ -1,2 +1,2 @@
 export { default as Footer } from "./Footer";
-export { default as StarGame } from "./StarGame";
+export { default as Game } from "./Game";

@@ -6,7 +6,7 @@ import { utils } from "../util";
 import { StarDisplay } from "../components/StarDisplay";
 import { PlayAgain } from "../components/PlayAgain";
 //Creating the StarGame Component
-const StarGame = () => {
+const Game = (props) => {
   const [stars, setStars] = useState(utils.random(1, 9)); //stars state
   const [availableNumber, setAvailableNumber] = useState(utils.range(1, 9));
   const [candidateNum, setCandidateNum] = useState([]);
@@ -58,12 +58,6 @@ const StarGame = () => {
     }
   };
 
-  const resetGame = () => {
-    setStars(utils.random(1, 9));
-    setAvailableNumber(utils.range(1, 9));
-    setCandidateNum([]);
-    setSecondLeft(10);
-  };
   return (
     <div className='game'>
       <div className='help'>
@@ -72,7 +66,7 @@ const StarGame = () => {
       <div className='body'>
         <div className='left'>
           {gameStatus !== "active" ? (
-            <PlayAgain onClick={resetGame} gameStatus={gameStatus} />
+            <PlayAgain onClick={props.startNewGame} gameStatus={gameStatus} />
           ) : (
             <StarDisplay stars={stars} />
           )}
@@ -93,4 +87,4 @@ const StarGame = () => {
   );
 };
 
-export default StarGame;
+export default Game;
